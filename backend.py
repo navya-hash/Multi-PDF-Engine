@@ -59,7 +59,7 @@ def process_pdfs(pdf_docs):
 # -------------- Handling questions by users -----------
 def user_input(question):
     # Step 1: Embed question and retrieve relevant chunks from FAISS
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="gemini-embedding-2-preview")
     db = FAISS.load_local(
         "faiss_index",
         embeddings_model,
