@@ -1,4 +1,7 @@
 # ------------ Importing all dependencies ------------
+import os
+import streamlit as st
+from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.prompts import PromptTemplate
@@ -6,9 +9,11 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from PyPDF2 import PdfReader
 from langchain_community.vectorstores import FAISS
-from dotenv import load_dotenv
+
 
 load_dotenv()
+
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") or st.secrets["GOOGLE_API_KEY"]
 
 
 # ----------- Reading multiple pdf documents ---------
@@ -32,7 +37,7 @@ def get_chunks_text(text):
 
 # ------------- Embed chunks and persist to FAISS ----------
 def get_vector_store(text_chunks):
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="gemini-embedding-2-preview")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings_model)
     vector_store.save_local("faiss_index")
 
