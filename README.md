@@ -1,7 +1,5 @@
 # ⬡ DocMind — Multi-PDF Q&A System
 
-🔗 **Live Demo:** https://multi-pdf-engine-ax.streamlit.app/
-
 An AI-powered document intelligence tool that lets you upload multiple PDFs and ask questions about their contents. Built with LangChain, Google Gemini, FAISS, and Streamlit.
 
 ---

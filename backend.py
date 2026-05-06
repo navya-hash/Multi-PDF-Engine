@@ -89,7 +89,7 @@ Answer:
     )
 
     model = ChatGoogleGenerativeAI(
-        model="gemini-1.5-pro",     # gemini-pro is deprecated; use gemini-1.5-pro
+        model="gemini-3.1-pro-preview",     4
         temperature=0.3,
     )
 
